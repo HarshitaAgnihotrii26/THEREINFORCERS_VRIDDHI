@@ -28,125 +28,130 @@ body {
 
 <body class="p-6">
 
-    
+<!-- MAIN FLEX LAYOUT -->
+<div class="flex max-w-7xl mx-auto gap-6">
 
-<div class="glass p-10 max-w-6xl mx-auto shadow-2xl space-y-8">
+    <!-- SIDEBAR (UNCHANGED) -->
+    <aside class="w-72 glass border-r border-white/20 p-8 flex flex-col hidden xl:flex sticky top-6 h-fit">
+        <div class="text-3xl font-black text-green-900 mb-12 flex items-center gap-3">
+            Vridhi
+        </div>
 
-     <aside class="w-72 border-r border-white/20 p-8 flex flex-col hidden xl:flex">
-            <div class="text-3xl font-black text-green-900 mb-12 flex items-center gap-3">
-                <i class="fa-solid fa-microchip text-green-600"></i> Vridhi
+        <nav class="flex-1 space-y-4">
+            <a id="nav-dash" href="index.html" class="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/70 font-bold text-slate-800 shadow-sm">Dashboard</a>
+            <a id="nav-yield" href="yield.html" class="flex items-center gap-4 px-6 py-4 rounded-2xl text-slate-600 hover:bg-white/30 transition">Prediction</a>
+            <a href="irrigation.html" class="flex items-center gap-4 px-6 py-4 rounded-2xl text-slate-600 hover:bg-white/30 transition">Planner</a>
+            <a href="fertilizer.html" class="flex items-center gap-4 px-6 py-4 rounded-2xl text-slate-600 hover:bg-white/30 transition">fertilizer</a>
+            <a id="nav-guide" href="guide.html" class="flex items-center gap-4 px-6 py-4 rounded-2xl text-slate-600 hover:bg-white/30 transition">Guide</a>
+
+            <a href="ai-hub.html" class="flex items-center gap-4 px-6 py-4 rounded-2xl text-slate-600 hover:bg-green-600 hover:text-white transition-all font-bold">
+                AI Precision Hub
+            </a>
+
+            <div onclick="window.location.href='market.html'" class="bg-slate-900 text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-2 shadow-xl cursor-pointer hover:bg-green-700 transition">
+                Go to Market
             </div>
-            <nav class="flex-1 space-y-4">
-                <a id="nav-dash" href="#" class="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/70 font-bold text-slate-800 shadow-sm"><i class="fa-solid fa-grid-2"></i> Dashboard</a>
-                <a id="nav-yield" href="yield.html" class="flex items-center gap-4 px-6 py-4 rounded-2xl text-slate-600 hover:bg-white/30 transition"><i class="fa-solid fa-chart-line"></i> Prediction</a>
-               <a id="nav-yield" href="irrigation.html" class="flex items-center gap-4 px-6 py-4 rounded-2xl text-slate-600 hover:bg-white/30 transition"><i class="fa-solid fa-chart-line"></i> Planner</a>
-                <a id="nav-yield" href="fertilizer.html" class="flex items-center gap-4 px-6 py-4 rounded-2xl text-slate-600 hover:bg-white/30 transition"><i class="fa-solid fa-chart-line"></i> fertilizer</a>
 
-                <a id="nav-guide" href="guide.html" class="flex items-center gap-4 px-6 py-4 rounded-2xl text-slate-600 hover:bg-white/30 transition"><i class="fa-solid fa-book-open"></i> Guide</a>
-                <a href="ai-hub.html" class="flex items-center gap-4 px-6 py-4 rounded-2xl text-slate-600 hover:bg-green-600 hover:text-white transition-all font-bold">
-                    <i class="fa-solid fa-brain"></i> <span>AI Precision Hub</span>
-                </a>
-                <div onclick="window.location.href='market.html'" class="bg-slate-900 text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-2 shadow-xl cursor-pointer hover:bg-green-700 transition">
-                    <i class="fa-solid fa-shop"></i> Go to Market
-                </div>
-
-                <div class="pt-6">
-                    <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3 block">Language / भाषा</label>
-                    <select id="langChoice" onchange="updateUI()" class="w-full bg-white/40 border-none rounded-xl px-4 py-3 text-sm font-bold outline-none backdrop-blur-md">
-                        <option value="en">English</option>
-                        <option value="hi">हिन्दी</option>
-                        <option value="bh">भोजपुरी</option>
-                        <option value="bn">বাংলা (Bengali)</option>
-                        <option value="te">తెలుగు (Telugu)</option>
-                    </select>
-                </div>
-            </nav>
-
-            <div class="mt-auto space-y-4">
-                <div class="bg-white/40 p-5 rounded-[30px] border border-white/40">
-                    <p class="text-[10px] font-black text-green-800 uppercase mb-1">Lucknow, UP</p>
-                    <p class="text-sm font-bold text-slate-800 user-name">User</p>
-                </div>
-                <button onclick="logoutUser()" class="w-full py-4 bg-red-500 text-white rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-red-600 transition shadow-lg shadow-red-200">
-                    <i class="fa-solid fa-power-off mr-2"></i> Logout
-                </button>
+            <div class="pt-6">
+                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3 block">Language / भाषा</label>
+                <select id="langChoice" onchange="updateUI()" class="w-full bg-white/40 border-none rounded-xl px-4 py-3 text-sm font-bold outline-none backdrop-blur-md">
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="bh">भोजपुरी</option>
+                    <option value="bn">বাংলা</option>
+                    <option value="te">తెలుగు</option>
+                </select>
             </div>
-        </aside>
+        </nav>
 
-    <!-- HEADER -->
-    <div>
-        <h1 class="text-4xl font-black text-green-800">
-            🌿 Fertilizer Intelligence System
-        </h1>
-        <p class="text-slate-600 mt-2">
-            AI-based fertilizer recommendation for higher yield and better soil health
-        </p>
-    </div>
+        <div class="mt-auto space-y-4">
+            <div class="bg-white/40 p-5 rounded-[30px] border border-white/40">
+                <p class="text-[10px] font-black text-green-800 uppercase mb-1">Lucknow, UP</p>
+                <p class="text-sm font-bold text-slate-800 user-name">User</p>
+            </div>
 
-    <!-- INPUT -->
-    <div class="grid md:grid-cols-4 gap-4">
+            <button onclick="logoutUser()" class="w-full py-4 bg-red-500 text-white rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-red-600 transition shadow-lg shadow-red-200">
+                Logout
+            </button>
+        </div>
+    </aside>
 
-        <select id="crop" class="p-3 rounded-xl bg-white/60">
-            <option value="wheat">🌾 Wheat</option>
-            <option value="rice">🌾 Rice</option>
-            <option value="maize">🌽 Maize</option>
-        </select>
+    <!-- RIGHT CONTENT -->
+    <div class="flex-1 glass p-10 shadow-2xl space-y-8">
 
-        <input id="area" type="number" placeholder="Area (acre)" 
-        class="p-3 rounded-xl bg-white/60">
-
-        <select id="soil" class="p-3 rounded-xl bg-white/60">
-            <option value="low">Poor Soil</option>
-            <option value="medium">Normal Soil</option>
-            <option value="high">Fertile Soil</option>
-        </select>
-
-        <button onclick="calculateFertilizer()" 
-        class="bg-green-600 text-white rounded-xl font-bold hover:bg-green-700">
-            Generate Plan 🚀
-        </button>
-
-    </div>
-
-    <!-- MAIN RESULT -->
-    <div id="result" class="card p-6 text-lg font-bold text-slate-800"></div>
-
-    <!-- NPK BREAKDOWN -->
-    <div class="grid md:grid-cols-3 gap-6">
-
-        <div class="card p-6 text-center">
-            <h3 class="font-black text-blue-600 text-xl">Nitrogen (N)</h3>
-            <p id="nVal" class="text-3xl font-black mt-2">--</p>
+        <!-- HEADER (FIXED RIGHT ALIGN) -->
+        <div>
+            <h1 class="text-4xl font-black text-green-800">
+                🌿 Fertilizer Intelligence System
+            </h1>
+            <p class="text-slate-600 mt-2">
+                AI-based fertilizer recommendation for higher yield and better soil health
+            </p>
         </div>
 
-        <div class="card p-6 text-center">
-            <h3 class="font-black text-purple-600 text-xl">Phosphorus (P)</h3>
-            <p id="pVal" class="text-3xl font-black mt-2">--</p>
+        <!-- INPUT -->
+        <div class="grid md:grid-cols-4 gap-4">
+
+            <select id="crop" class="p-3 rounded-xl bg-white/60">
+                <option value="wheat">🌾 Wheat</option>
+                <option value="rice">🌾 Rice</option>
+                <option value="maize">🌽 Maize</option>
+            </select>
+
+            <input id="area" type="number" placeholder="Area (acre)" class="p-3 rounded-xl bg-white/60">
+
+            <select id="soil" class="p-3 rounded-xl bg-white/60">
+                <option value="low">Poor Soil</option>
+                <option value="medium">Normal Soil</option>
+                <option value="high">Fertile Soil</option>
+            </select>
+
+            <button onclick="calculateFertilizer()" class="bg-green-600 text-white rounded-xl font-bold hover:bg-green-700">
+                Generate Plan 🚀
+            </button>
+
         </div>
 
-        <div class="card p-6 text-center">
-            <h3 class="font-black text-orange-600 text-xl">Potassium (K)</h3>
-            <p id="kVal" class="text-3xl font-black mt-2">--</p>
+        <!-- RESULT -->
+        <div id="result" class="card p-6 text-lg font-bold text-slate-800"></div>
+
+        <!-- NPK -->
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <div class="card p-6 text-center">
+                <h3 class="font-black text-blue-600 text-xl">Nitrogen (N)</h3>
+                <p id="nVal" class="text-3xl font-black mt-2">--</p>
+            </div>
+
+            <div class="card p-6 text-center">
+                <h3 class="font-black text-purple-600 text-xl">Phosphorus (P)</h3>
+                <p id="pVal" class="text-3xl font-black mt-2">--</p>
+            </div>
+
+            <div class="card p-6 text-center">
+                <h3 class="font-black text-orange-600 text-xl">Potassium (K)</h3>
+                <p id="kVal" class="text-3xl font-black mt-2">--</p>
+            </div>
+
         </div>
 
-    </div>
+        <!-- SCHEDULE -->
+        <div class="card p-6">
+            <h3 class="font-black text-xl mb-4">📅 Application Schedule</h3>
+            <ul id="schedule" class="space-y-2 text-slate-700 font-semibold"></ul>
+        </div>
 
-    <!-- SCHEDULE -->
-    <div class="card p-6">
-        <h3 class="font-black text-xl mb-4">📅 Application Schedule</h3>
-        <ul id="schedule" class="space-y-2 text-slate-700 font-semibold"></ul>
-    </div>
+        <!-- AI -->
+        <div class="card p-6 bg-green-50 border border-green-200">
+            <h3 class="font-black text-green-800 mb-2">🧠 AI Insight</h3>
+            <p id="aiInsight" class="text-green-900 font-semibold"></p>
+        </div>
 
-    <!-- AI INSIGHT -->
-    <div class="card p-6 bg-green-50 border border-green-200">
-        <h3 class="font-black text-green-800 mb-2">🧠 AI Insight</h3>
-        <p id="aiInsight" class="text-green-900 font-semibold"></p>
     </div>
 
 </div>
 
 <script>
-
 function calculateFertilizer() {
 
     let crop = document.getElementById("crop").value;
@@ -185,7 +190,6 @@ function calculateFertilizer() {
         reason += " + Soil is poor";
     }
 
-    // MAIN RESULT
     document.getElementById("result").innerHTML = `
         🌿 Fertilizer: <span class="text-green-700">${fertilizer}</span><br>
         📦 Quantity: ${amount} kg<br>
@@ -193,23 +197,19 @@ function calculateFertilizer() {
         📌 ${reason}
     `;
 
-    // NPK
     document.getElementById("nVal").innerText = N + "%";
     document.getElementById("pVal").innerText = P + "%";
     document.getElementById("kVal").innerText = K + "%";
 
-    // Schedule
     document.getElementById("schedule").innerHTML = `
         <li>Day 1 → Initial fertilizer</li>
         <li>Day 15 → Second dose</li>
         <li>Day 30 → Final boost</li>
     `;
 
-    // AI Insight
     document.getElementById("aiInsight").innerText =
         "Applying fertilizer in split doses improves efficiency and reduces wastage. Monitor soil moisture for best results.";
 }
-
 </script>
 
 </body>
