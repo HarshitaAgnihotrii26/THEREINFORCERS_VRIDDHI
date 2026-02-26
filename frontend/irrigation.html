@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irrigation Planner | Vridhi</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+    font-family: 'Outfit', sans-serif;
+    background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+    background-size: cover;
+}
+.glass {
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(25px);
+    border-radius: 40px;
+}
+.card {
+    background: rgba(255,255,255,0.4);
+    border-radius: 25px;
+}
+</style>
+</head>
+
+<body class="p-6">
+
+<div class="glass p-8 max-w-6xl mx-auto shadow-2xl">
+
+    <!-- HEADER -->
+    <h1 class="text-3xl font-black text-green-800 mb-6">
+        💧 Smart Irrigation Planner
+    </h1>
+
+    <!-- INPUT SECTION -->
+    <div class="grid md:grid-cols-3 gap-4 mb-6">
+
+        <select id="crop" class="p-3 rounded-xl bg-white/60">
+            <option value="wheat">🌾 Wheat</option>
+            <option value="rice">🌾 Rice</option>
+            <option value="maize">🌽 Maize</option>
+        </select>
+
+        <input id="area" type="number" placeholder="Area (acre)" 
+        class="p-3 rounded-xl bg-white/60">
+
+        <select id="soil" class="p-3 rounded-xl bg-white/60">
+            <option value="low">Dry Soil</option>
+            <option value="medium">Medium Soil</option>
+            <option value="high">Wet Soil</option>
+        </select>
+
+    </div>
+
+    <!-- BUTTON -->
+    <button onclick="getPlan()" 
+    class="bg-green-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-green-700 transition">
+        Get Irrigation Plan 🚀
+    </button>
+
+    <!-- RESULT -->
+    <div id="result" class="mt-6 p-6 card text-lg font-bold text-slate-800"></div>
+
+    <!-- WEEKLY PLAN -->
+    <div class="mt-8 card p-6">
+        <h2 class="font-black mb-4 text-xl">📅 Weekly Plan</h2>
+
+        <div id="weekly" class="grid grid-cols-7 gap-2 text-center text-sm"></div>
+    </div>
+
+</div>
+
+<script>
+
+async function getPlan() {
+
+    let crop = document.getElementById("crop").value;
+    let area = document.getElementById("area").value;
+    let soil = document.getElementById("soil").value;
+
+    if(area === "") {
+        alert("Area daalo bhai");
+        return;
+    }
+
+    // 🌦 Weather API call
+    let res = await fetch("http://127.0.0.1:8000/api/weather?lat=26.84&lon=80.94");
+    let weather = await res.json();
+
+    let temp = weather.temperature;
+    let humidity = weather.humidity;
+
+    let irrigation = "NO";
+    let water = 0;
+    let reason = "";
+
+    // 🤖 AI LOGIC
+    if (soil === "low" && humidity < 50) {
+        irrigation = "YES";
+        water = area * 1200;
+        reason = "Soil dry + humidity low";
+    }
+    else if (temp > 32) {
+        irrigation = "YES";
+        water = area * 1500;
+        reason = "High temperature";
+    }
+    else {
+        irrigation = "NO";
+        reason = "Enough moisture";
+    }
+
+    // RESULT DISPLAY
+    document.getElementById("result").innerHTML = `
+        💧 Irrigation Needed: <span class="text-green-700">${irrigation}</span><br>
+        🌡 Temperature: ${temp}°C<br>
+        💦 Humidity: ${humidity}%<br>
+        🚿 Water Required: ${water} Liters/day<br>
+        📌 Reason: ${reason}
+    `;
+
+    // WEEKLY PLAN GENERATE
+    let days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+    let weeklyHTML = "";
+
+    days.forEach(day => {
+        let need = Math.random() > 0.5 ? "✔" : "✖";
+        let color = need === "✔" ? "bg-green-300" : "bg-gray-200";
+
+        weeklyHTML += `<div class="${color} p-2 rounded">${day}<br>${need}</div>`;
+    });
+
+    document.getElementById("weekly").innerHTML = weeklyHTML;
+}
+
+</script>
+
+</body>
+</html>
