@@ -24,7 +24,9 @@ Vridhi is an AI-powered smart farming assistant designed to help farmers make be
 It provides an intuitive dashboard with multiple intelligent tools to improve productivity and optimize resource usage.
 
 🚀 Features
+
 🌾 Crop Prediction
+
 Predict suitable crops based on conditions
 
 Helps farmers choose the best crop for higher yield
@@ -50,14 +52,18 @@ Includes seasonal recommendations
 
 Displays useful farming insights
 
+
 🖥️ Tech Stack
+
 Frontend: HTML, Tailwind CSS
 
 Backend: FastAPI (Python)
 
 API: Weather API integration
 
+
 Tools: VS Code, Git, GitHub
+
 
 📂 Project Structure
 Vridhi/
@@ -73,21 +79,35 @@ Vridhi/
 │   ├── model.pkl
 │
 └── assets/
+
+
 ⚙️ How to Run
+
 1️⃣ Clone Repository
+
 git clone https://github.com/HarshitaAgnihotrii26/THEREINFORCERS_VRIDDHI.git
+
 cd vridhi
+
 2️⃣ Run Backend (FastAPI)
+
 uvicorn main:app --reload
+
 3️⃣ Open Frontend
+
 Open index.html in browser
+
 
 OR use Live Server
 
+
 🌍 Future Improvements
+
 🌐 Multi-language support (Hindi, Bhojpuri, etc.)
 
+
 📊 Real-time weather integration
+
 
 🤖 Advanced AI prediction models
 
